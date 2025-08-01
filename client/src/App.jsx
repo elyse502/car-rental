@@ -1,11 +1,14 @@
-import React from 'react'
+import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
-  return (
-    <div>
-      <h1 className='text-3xl font-bold text-indigo-600'>Car Rental</h1>
-    </div>
-  )
-}
+  const [showLogin, setShowLogin] = useState(false);
 
-export default App
+  return (
+    <>
+      <Navbar setShowLogin={setShowLogin} />
+    </>
+  );
+};
+
+export default App;
