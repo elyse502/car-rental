@@ -1,6 +1,7 @@
 import Banner from "../components/Banner";
 import FeaturedSection from "../components/FeaturedSection";
 import Hero from "../components/Hero";
+import NewsLetter from "../components/NewsLetter";
 import Testimonial from "../components/Testimonial";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       <FeaturedSection />
       <Banner />
       <Testimonial />
+      <NewsLetter />
     </>
   );
 };
