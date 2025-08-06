@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Routes
 app.get("/", (req, res) => res.send("Server is running...🎆"));
-app.use("/api/users", userRouter);
+app.use("/api/user", userRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
