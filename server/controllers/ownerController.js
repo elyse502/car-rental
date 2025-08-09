@@ -154,3 +154,39 @@ export const getDashboardData = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+// API to update user image
+export const updateUserImage = async (req, res) => {
+  try {
+    const { _id } = req.user;
+
+    const imageFile = req.file;
+
+    // Upload Image to ImageKit
+    const fileBuffer = fs.readFileSync(imageFile.path);
+    const response = await imagekit.upload({
+      file: fileBuffer,
+      fileName: imageFile.originalname,
+      folder: "/users",
+    });
+
+    // Optimization through imageKit URL transformation
+    var optimezedImageUrl = imagekit.url({
+      path: response.filePath,
+      transformation: [
+        { width: "400" }, // Width resizing
+        { quality: "auto" }, // Auto compression
+        { format: "webp" }, // Convert to modern format
+      ],
+    });
+
+    const image = optimezedImageUrl;
+
+    await User.findByIdAndUpdate(_id, { image });
+
+    res.json({ success: true, message: "Image Updated" });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
