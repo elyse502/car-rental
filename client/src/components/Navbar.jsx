@@ -60,7 +60,7 @@ const Navbar = () => {
           <input
             type="text"
             className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
-            placeholder="Search products"
+            placeholder="Search cars"
           />
           <img src={assets.search_icon} alt="search" />
         </div>
