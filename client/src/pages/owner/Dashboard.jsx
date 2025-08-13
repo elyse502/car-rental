@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [data, setData] = useState({
     totalCars: 0,
     totalBookings: 0,
-    pendingBookings: 0,
+    totalPendingBookings: 0,
     completedBookings: 0,
     recentBookings: [],
     monthlyRevenue: 0,
@@ -25,7 +25,7 @@ const Dashboard = () => {
     },
     {
       title: "Pending",
-      value: data.pendingBookings,
+      value: data.totalPendingBookings,
       icon: assets.cautionIconColored,
     },
     {
