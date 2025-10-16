@@ -74,6 +74,13 @@ const Navbar = () => {
           </button> */}
 
           <button
+            onClick={() => (isOwner ? navigate("/owner") : navigate("/"))}
+            className="cursor-pointer"
+          >
+            Dashboard
+          </button>
+
+          <button
             onClick={() => {
               user ? logout() : setShowLogin(true);
             }}
